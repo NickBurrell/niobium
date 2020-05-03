@@ -8,7 +8,7 @@ function(enable_doxygen)
 		set(DOXYGEN_PROJECT_NAME "${PROJECT_NAME}")
 		set(DOXYGEN_PROJET_BRIEF "${PROJECT_BRIEF}")
 
-		set(DOXYGEN_GENERATE_HTML NO)
+		set(DOXYGEN_GENERATE_HTML YES)
 		set(DOXYGEN_GENERATE_XML YES)
 
 		find_package(Doxygen REQUIRED dot)
