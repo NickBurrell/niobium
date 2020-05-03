@@ -1,0 +1,17 @@
+--- _deps/unicorn-src/CMakeLists.txt	2020-05-03 02:54:42.587086800 -0700
++++ _deps/unicorn-src/CMakeListsPatched.txt	2020-05-03 02:58:23.868199700 -0700
+@@ -85,8 +85,13 @@
+     endif()
+ else()
+     # detect host arch.
++    if(WIN32)
++        set(DEVNULL "NUL")
++    else()
++        set(DEVULL "/dev/null")
++    endif()
+     execute_process(COMMAND ${CMAKE_C_COMPILER} -dM -E -
+-        INPUT_FILE /dev/null
++        INPUT_FILE ${DEVNULL}
+         OUTPUT_VARIABLE UC_COMPILER_MACRO)
+ 
+     while(TRUE)

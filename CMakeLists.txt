@@ -4,6 +4,9 @@ project(niobium CXX)
 include(cmake/StandardProjectSettings.cmake)
 
 include(ExternalProject)
+include(FetchContent)
+
+set(FETCH_MISSING On)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
 
@@ -37,7 +40,6 @@ option(ENABLE_TESTING "Enable test builds" ON)
 
 option(ENABLE_PCH "Enable precompiled headers" OFF)
 if(ENABLE_PCH)
-
 	target_precompile_headers(project_options INTERFACE <vector> <string> <map> <utility>)
 endif()
 
