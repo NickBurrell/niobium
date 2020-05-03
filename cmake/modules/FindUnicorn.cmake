@@ -15,8 +15,8 @@ if(UNICORN_FOUND)
 	find_package(Threads REQUIRED)
 	unset(THREADS_PREFER_PTHREAD_FLAG)
 
-	add_library(Unicorn::Unicorn UNKNOWN IMPORTED)
-	set_target_properties(Unicorn::Unicorn PROPERTIES
+	add_library(Unicorn UNKNOWN IMPORTED)
+	set_target_properties(Unicorn PROPERTIES
 		IMPORTED_LOCATION ${LIBUNICORN_LIBRARY}
 		INTERFACE_INCLUDE_DIRECTORIES ${LIBUNICORN_INCLUDE_DIR}
 		INTERFACE_LINK_LIBRARIES Threads::Threads
@@ -48,8 +48,8 @@ elseif(FETCH_MISSING)
 			BUILD_COMMAND 		${UNICORN_BUILD_COMMAND}
 	)
 	FetchContent_MakeAvailable(unicorn)
-	add_library(Unicorn::Unicorn INTERFACE)
-	set_target_properties(Unicorn::Unicorn PROPERTIES
+	add_library(Unicorn INTERFACE)
+	set_target_properties(Unicorn PROPERTIES
 			INTERFACE_LINK_LIBRARIES unicorn Threads::Threads)
 endif()
 
