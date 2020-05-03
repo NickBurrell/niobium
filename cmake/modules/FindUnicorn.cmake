@@ -49,8 +49,14 @@ elseif(FETCH_MISSING)
 	)
 	FetchContent_MakeAvailable(unicorn)
 	add_library(Unicorn INTERFACE)
+
+	set(THREADS_PREFER_PTHREAD_FLAG ON)
+	find_package(Threads REQUIRED)
+	unset(THREADS_PREFER_PTHREAD_FLAG)
+
 	set_target_properties(Unicorn PROPERTIES
-			INTERFACE_LINK_LIBRARIES unicorn Threads::Threads)
+			INTERFACE_INCLUDE_LIBRARIES "${FETCHCONTENT_BASE_DIR}/unicorn-src/include"
+			INTERFACE_LINK_LIBRARIES "unicorn")
 endif()
 
 mark_as_advanced(LIBUNICORN_INCLUDE_DIR LIBUNICORN_LIBRARY)

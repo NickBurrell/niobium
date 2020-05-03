@@ -65,8 +65,8 @@ if(ENABLE_FUZZING)
 endif()
 
 find_package(Unicorn REQUIRED)
-find_package(Capstone REQUIRED)
-find_package(Keystone REQUIRED)
+#find_package(Capstone REQUIRED)
+#find_package(Keystone REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(niobium_cli)
