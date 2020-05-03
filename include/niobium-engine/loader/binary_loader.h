@@ -3,6 +3,9 @@
 
 #include <istream>
 
+/**
+ * \brief BinaryLoader
+ */
 class BinaryLoader {};
 
 #endif
